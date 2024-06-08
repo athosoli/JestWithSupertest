@@ -1,12 +1,12 @@
 {
-  "name": "aula-03",
+  "name": "testes Crud Api users",
   "version": "1.0.0",
-  "description": "aula 3 - teste com jest e supertest",
+  "description": "teste com jest e supertest",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
-  "author": "athos",
+  "author": "Athos de Oliveira",
   "license": "ISC",
   "devDependencies": {
     "jest": "^29.7.0",
