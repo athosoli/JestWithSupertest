@@ -1,0 +1,41 @@
+#nome da ppipe
+name: 'execucao agendada'
+#trigger gatilho de execucao
+on:
+  schedule:
+    - cron: "30 19 * * *"
+
+
+jobs:
+#descricao job
+  e2e-tests:
+  #descricao maquin
+    runs-on: ubuntu-latest
+    #passp a passo
+    steps:  
+    - uses: actions/checkout@v4
+
+    - name: Instalando yarn
+      run: npm i -g yarn
+
+    - name: Instalanco dependencia
+      run: yarn
+
+    - name: Instalanco playwright
+      run: yarn playwright install
+
+    - name: testes e2e
+      run: yarn run e2e
+
+    # - name: testes unit 
+    #   run: yarn run test
+    - uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: relatorio de testes
+        path: ./playwright-report  
+
+
+
+
+
