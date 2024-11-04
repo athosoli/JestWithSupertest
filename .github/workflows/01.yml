@@ -15,7 +15,11 @@ jobs:
         run:  npm i -g yarn
 
       - name: Instalando dependências
-        run:  yarn
+        run:  yarn install
+        
+      - name: Instalando dependências
+        run:  yarn add --dev jest supertest
+
 
       - name: Executando testes de API
         run: yarn test
